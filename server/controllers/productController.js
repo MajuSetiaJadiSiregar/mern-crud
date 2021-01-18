@@ -11,7 +11,16 @@ module.exports = {
          await newProduct.save();
 
          res.json({ success : newProduct });
-         
+
+      } catch (err) {
+         return res.status(500).json({ msg : err.message});
+      };
+   },
+
+   readProduct : async (req, res) => {
+      try {
+         const readProduct = await Product.find();
+         res.json({ products : readProduct});
       } catch (err) {
          return res.status(500).json({ msg : err.message});
       }
