@@ -1,0 +1,16 @@
+body {
+   margin: 0;
+   background: url('https://github.com/diana-moreno/crud-redux-thunk/blob/master/src/img/pineapple-2588302_1920.jpg?raw=true');
+   background-attachment: fixed;
+   background-position: bottom;
+   font-family: 'Courier New', Courier, monospace;
+   font-size: 1.2rem;
+}
+
+.header {
+   background-color: #62a086;
+   display : flex;
+   justify-content: space-between;
+   padding: 0 2rem;
+   align-items: center;
+}
