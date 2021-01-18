@@ -8,7 +8,8 @@ const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT;
 const URI_DB = process.env.URI_DB;
-const api = process.env.API
+const api = process.env.API;
+const productRoutes = require('./routes/productRoutes');
 
 /**middleware */
 app.use(bodyParser.json());
@@ -17,14 +18,8 @@ app.use(morgan('tiny'));
 app.use(cors());
 app.options(`*`, cors());
 
-/**test route */
-app.get(`${api}`, (req, res) => {
-   res.json({ msg : 'router get berjalan'});
-});
-app.post(`/`, (req, res) => {
-   console.log(req.body);
-   res.json({ reqBody : 'berjalan'})
-});
+app.use(`${api}/products`, productRoutes);
+
 
 /**connect database */
 mongoose.connect(URI_DB, { useNewUrlParser : true, useUnifiedTopology : true})
