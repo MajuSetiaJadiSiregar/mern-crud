@@ -23,7 +23,7 @@ module.exports = {
          res.json({ products : readProduct});
       } catch (err) {
          return res.status(500).json({ msg : err.message});
-      }
+      };
    },
 
    updateProduct : async (req, res) => {
@@ -33,7 +33,15 @@ module.exports = {
          res.json({ success : updateProduct});
       } catch (err) {
          return res.status(500).json({ msg : err.message});
-      }
-      
+      };
+   },
+
+   deleteProduct : async (req, res) => {
+      try {
+         const deleteProduct = await Product.findByIdAndDelete(req.params.id);
+         res.json({ success : deleteProduct});
+      } catch (err) {
+         return res.status(500).json({ msg : err.message});
+      };
    }
 }
