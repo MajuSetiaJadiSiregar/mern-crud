@@ -5,8 +5,11 @@ const Header = () => {
    return(
       <nav className='header'>
          <div>
-            <h1>computer Store</h1>
+            <h1 className='title'>computer Store</h1>
          </div>
+         <button className='button button-new'>
+            Add Product
+         </button>
       </nav>
    )
 };
