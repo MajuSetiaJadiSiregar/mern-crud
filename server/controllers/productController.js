@@ -25,4 +25,15 @@ module.exports = {
          return res.status(500).json({ msg : err.message});
       }
    },
+
+   updateProduct : async (req, res) => {
+      try {
+         const { name, price } = req.body;
+         const updateProduct = await Product.findByIdAndUpdate(req.params.id, { name, price}, { new : true });
+         res.json({ success : updateProduct});
+      } catch (err) {
+         return res.status(500).json({ msg : err.message});
+      }
+      
+   }
 }
